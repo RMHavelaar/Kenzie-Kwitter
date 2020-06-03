@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProptTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Loader } from "../loader";
 import "./LoginForm.css";
 
@@ -52,7 +52,7 @@ export const LoginForm = ({ login, loading, error }) => {
 };
 
 LoginForm.propTypes = {
-  login: ProptTypes.func.isRequired,
-  loading: ProptTypes.bool,
-  error: ProptTypes.string,
+  login: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
 };
