@@ -61,8 +61,8 @@ export const AddUser = ({ addUser, loading, error }) => {
   );
 };
 
-LoginForm.propTypes = {
-  login: PropTypes.func.isRequired,
+AddUser.propTypes = {
+  addUser: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   error: PropTypes.string,
 };
