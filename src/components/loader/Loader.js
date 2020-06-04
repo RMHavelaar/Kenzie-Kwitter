@@ -1,15 +1,18 @@
-import React from "react";
+import React, { Component } from 'react';
+import spinner from '../../assets/images/spinner';
 
-class  extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-        return (  );
-    }
+class loader extends Component {
+  state = {};
+  render() {
+    return (
+      <div class="loaderContainer">
+        <div className="loader">
+          <img src={spinner} />
+        </div>
+      </div>
+    );
+  }
 }
- 
-export default ;
 
+export default loader;
 export const Loader = () => <>LOADING.......</>;
