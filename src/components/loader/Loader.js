@@ -1,8 +1,15 @@
 import React from "react";
 
-/*
-https://lmgtfy.com/?q=react+loading+spinner+components
-There are many more on the web use one of these or create your own!
-*/
+class  extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+    render() { 
+        return (  );
+    }
+}
+ 
+export default ;
 
 export const Loader = () => <>LOADING.......</>;
