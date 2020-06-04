@@ -1,5 +1,5 @@
 import React from "react";
-import ProptTypes from "prop-types";
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
@@ -69,7 +69,7 @@ ConnectedRoute.defaultProps = {
 };
 // https://reactjs.org/docs/typechecking-with-proptypes.html
 ConnectedRoute.propTypes = {
-  isProtected: ProptTypes.bool,
-  redirectIfAuthenticated: ProptTypes.bool,
-  component: ProptTypes.elementType.isRequired,
+  isProtected: PropTypes.bool,
+  redirectIfAuthenticated: PropTypes.bool,
+  component: PropTypes.elementType.isRequired,
 };

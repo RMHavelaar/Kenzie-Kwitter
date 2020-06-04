@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Loader } from "../loader";
-import "./LoginForm.css";
+import "./AddUser.css";
 
-export const LoginForm = ({ login, loading, error }) => {
+export const AddUser = ({ addUser, loading, error }) => {
   // Not to be confused with "this.setState" in classes
   const [state, setState] = useState({
     username: "",
+    displayName: "",
     password: "",
   });
 
-  const handleLogin = (event) => {
+  const handleAddUser = (event) => {
     event.preventDefault();
-    login(state);
+    addUser(state);
   };
 
   const handleChange = (event) => {
@@ -23,12 +24,21 @@ export const LoginForm = ({ login, loading, error }) => {
 
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
+      <form id="add-user" onSubmit={handleAddUser}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           value={state.username}
+          autoFocus
+          required
+          onChange={handleChange}
+        />
+        <label htmlFor="displayName">Display Name</label>
+        <input
+          type="text"
+          name="displayName"
+          value={state.displayName}
           autoFocus
           required
           onChange={handleChange}
@@ -42,7 +52,7 @@ export const LoginForm = ({ login, loading, error }) => {
           onChange={handleChange}
         />
         <button type="submit" disabled={loading}>
-          Login
+          Register
         </button>
       </form>
       {loading && <Loader />}
@@ -51,8 +61,8 @@ export const LoginForm = ({ login, loading, error }) => {
   );
 };
 
-LoginForm.propTypes = {
-  login: PropTypes.func.isRequired,
+AddUser.propTypes = {
+  addUser: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   error: PropTypes.string,
 };

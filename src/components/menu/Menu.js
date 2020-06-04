@@ -1,5 +1,5 @@
 import React from "react";
-import ProptTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Menu.css";
 
@@ -25,6 +25,6 @@ Menu.defaultProps = {
 };
 
 Menu.propTypes = {
-  isAuthenticated: ProptTypes.bool.isRequired,
-  logout: ProptTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
 };
