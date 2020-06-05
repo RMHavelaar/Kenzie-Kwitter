@@ -12,7 +12,9 @@ export const LoginForm = ({ login, loading, error }) => {
 
   const handleLogin = (event) => {
     event.preventDefault();
+    event.target.reset();
     login(state);
+   
   };
 
   const handleChange = (event) => {
@@ -24,24 +26,31 @@ export const LoginForm = ({ login, loading, error }) => {
   return (
     <React.Fragment>
       <form id="login-form" onSubmit={handleLogin}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={state.username}
-          autoFocus
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          required
-          onChange={handleChange}
-        />
-        <button type="submit" disabled={loading}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            value={state.username}
+            autoFocus
+            required
+            onChange={handleChange}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={state.password}
+            required
+            onChange={handleChange}
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <button type="submit" disabled={loading} className="btn btn-primary">
           Login
         </button>
       </form>

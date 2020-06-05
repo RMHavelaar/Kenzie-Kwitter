@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AddUserContainer, MenuContainer } from "../components";
+import "./Home.css";
 
 export const AddUserScreen = () => (
   <>
     <MenuContainer />
-    <h2>Register New User</h2>
+    <div className="title"><h5>Register New User</h5></div>
     <AddUserContainer />
-    <hr />
-    <Link to="/">Home</Link>
+    <Link to="/" className="link">
+      Home
+    </Link>
   </>
 );
