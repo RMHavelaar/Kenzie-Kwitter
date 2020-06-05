@@ -3,8 +3,7 @@ import "../main.css"
 import { Form, Button } from "react-bootstrap";
 // import like button
 // Make a message.css instead of main.css
-import { withA}
-// Find React Bootstrap Card or container Comp to use and import
+import { isLoadingReducer } from "../../isLoadingReducer"
 
 class MessageForm extends Component {
     // state = {  }
