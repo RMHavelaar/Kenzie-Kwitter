@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProptTypes from "prop-types";
-import { Loader } from "../loader";
+import { Loader } from "../Loader";
 import "./LoginForm.css";
 
 export const LoginForm = ({ login, loading, error }) => {
