@@ -1,16 +1,18 @@
-// import React, {Component} from "react";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button"
-// import "../main.css"
+import React, {Component} from "react";
+import "../main.css"
+import { Form, Button } from "react-bootstrap";
+// import like button
+// Make a message.css instead of main.css
+import { withA}
+// Find React Bootstrap Card or container Comp to use and import
 
-// class  extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return (  );
-//     }
-// }
+class MessageForm extends Component {
+    // state = {  }
+    render() { 
+        return ( 
+
+         );
+    }
+}
  
-// export default ;
+export default ;
