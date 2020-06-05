@@ -25,36 +25,47 @@ export const AddUser = ({ addUser, loading, error }) => {
   return (
     <React.Fragment>
       <form id="add-user" onSubmit={handleAddUser}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={state.username}
-          autoFocus
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="displayName">Display Name</label>
-        <input
-          type="text"
-          name="displayName"
-          value={state.displayName}
-          autoFocus
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          required
-          onChange={handleChange}
-        />
-        <button type="submit" disabled={loading}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            value={state.username}
+            autoFocus
+            required
+            onChange={handleChange}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="displayName">Display Name</label>
+          <input
+            type="text"
+            name="displayName"
+            value={state.displayName}
+            autoFocus
+            required
+            onChange={handleChange}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={state.password}
+            required
+            onChange={handleChange}
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <button type="submit" disabled={loading} className="btn btn-primary">
           Register
         </button>
       </form>
+
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
