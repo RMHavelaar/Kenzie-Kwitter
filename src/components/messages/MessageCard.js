@@ -1,11 +1,9 @@
 import React from "react";
 import { isLoadingReducer } from "../../isLoadingReducer";
-import { Form, Button } from "react-bootstrap";
-// Do I need to
-// Import Link from root?
+import { Card } from "react-bootstrap/Card";
+import { Link } from ".";
 
 class MessageCard extends React.Component {
-  // state = {  }
   render() {
     return (
       <div id="messageCardContainer">
@@ -15,7 +13,7 @@ class MessageCard extends React.Component {
             <Image src="./src/assets/images/EmptyProfilePic.png" />
             <Card.Header>
               {/* Path may be wrong but this will fill in the Users name on the Message Card */}
-              <Link to={`/login/${this.props.username}`}>
+              <Link to={`/profile/${this.props.username}`}>
                 <h2>{this.props.username}</h2>
               </Link>
             </Card.Header>
