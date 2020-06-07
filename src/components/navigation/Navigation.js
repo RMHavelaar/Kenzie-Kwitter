@@ -5,6 +5,7 @@ import {
   ProfileScreen,
   NotFoundScreen,
   AddUserScreen,
+  MessagesScreen,
 } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 
@@ -23,6 +24,7 @@ export const Navigation = () => (
         path="/profiles/:username"
         component={ProfileScreen}
       />
+      <ConnectedRoute exact path="/register" component={MessagesScreen} />
       <ConnectedRoute exact path="/register" component={AddUserScreen} />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>

@@ -1,7 +1,7 @@
 import React from "react";
 import { isLoadingReducer } from "../../isLoadingReducer";
-import { Card } from "react-bootstrap/Card";
-import { Link } from ".";
+import Card from "react-bootstrap/Card";
+import Link from ".";
 
 class MessageCard extends React.Component {
   render() {
