@@ -24,7 +24,7 @@ export const Navigation = () => (
         path="/profiles/:username"
         component={ProfileScreen}
       />
-      <ConnectedRoute exact path="/register" component={MessagesScreen} />
+      <ConnectedRoute exact path="/messages" component={MessagesScreen} />
       <ConnectedRoute exact path="/register" component={AddUserScreen} />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>

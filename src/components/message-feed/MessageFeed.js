@@ -1,5 +1,5 @@
 import React from "react";
-import MessageFeed from "../messages/MessageFeed"
+import MessageFeed from "./MessageFeed"
 
 class MessageFeed extends React.Component {
     render() { 
