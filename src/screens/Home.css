@@ -6,8 +6,8 @@
 }
 
 .title {
-    display: flex;
-    flex-direction: column;
-    max-width: 20em;
-    margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
+  margin: 10px auto;
 }
