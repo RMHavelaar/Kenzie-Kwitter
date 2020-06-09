@@ -14,13 +14,20 @@ export const LoginForm = ({ login, loading, error }) => {
     event.preventDefault();
     event.target.reset();
     login(state);
-   
+    clear();
   };
 
   const handleChange = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
     setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
+  };
+
+  const clear = () => {
+    setState({
+      username: "",
+      password: "",
+    });
   };
 
   return (
@@ -31,6 +38,7 @@ export const LoginForm = ({ login, loading, error }) => {
           <input
             type="text"
             name="username"
+            placeholder="username"
             value={state.username}
             autoFocus
             required
@@ -43,6 +51,7 @@ export const LoginForm = ({ login, loading, error }) => {
           <input
             type="password"
             name="password"
+            placeholder="password"
             value={state.password}
             required
             onChange={handleChange}
@@ -50,7 +59,7 @@ export const LoginForm = ({ login, loading, error }) => {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" disabled={loading} className="btn btn-primary">
+        <button type="submit" disabled={loading} className="btn btn-primary" id="login-button">
           Login
         </button>
       </form>
