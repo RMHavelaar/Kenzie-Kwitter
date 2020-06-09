@@ -35,6 +35,17 @@ class API {
     this.axiosInstance = axiosInstance;
   }
 
+  // TODO: test to see if this request will work: 
+  async profile(username) {
+    try {
+      const result = await this.axiosInstance.get(`/users/${username}`);
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+    }
+  }
+
   async addUser({ username, displayName, password }) {
     try {
       const result = await this.axiosInstance.post("/users", {
