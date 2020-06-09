@@ -25,7 +25,7 @@ class Profile extends Component {
     return (
       <React.Fragment>
         <div className="card" id="profile-card">
-          <h3 className="card-title">Profile</h3>
+          <h3 className="card-title" id="title">Profile</h3>
           <img
             src={defaultImage}
             className="card-img-top"
