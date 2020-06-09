@@ -1,5 +1,11 @@
 #profile-card {
     width: 20em;
     margin: 20px auto;
+    background-color: rgb(77,77,77);
+    color: rgb(41,163,240);
+}
+
+#title {
+    padding-left: 1em;
 }
 
