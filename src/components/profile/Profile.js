@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Profile.css";
 import defaultImage from "../../assets/images/EmptyProfilePic.png";
+import dateFormat from "dateformat"; 
 
 class Profile extends Component {
   // TODO: add other params to state for componentDidUpdate
@@ -39,11 +40,11 @@ class Profile extends Component {
             </p>
             <p className="card-text">
               Created on:{" "}
-              {this.props.user.user ? this.props.user.user.createdAt : ""}
+              {this.props.user.user ? dateFormat(this.props.user.user.createdAt, "mmmm dS, yyyy")  : ""}
             </p>
             <p className="card-text">
               Last Updated:{" "}
-              {this.props.user.user ? this.props.user.user.updatedAt : ""}
+              {this.props.user.user ? dateFormat(this.props.user.user.updatedAt, "mmmm dS, yyyy") : ""}
             </p>
           </div>
         </div>
