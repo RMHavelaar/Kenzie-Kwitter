@@ -60,6 +60,29 @@ class API {
     }
   }
 
+  async addLike(messageId) {
+    try {
+      const result = await this.axiosInstance.post('/likes', {
+        messageId
+      })
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+
+    }
+  }
+  
+  async removeLike(likeId) {
+    try {
+      const result = await this.axiosInstance.delete(`/likes/${likeId}`)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+
+    }
+  }
+
+
   async login({ username, password }) {
     try {
       const result = await this.axiosInstance.post("/auth/login", {
