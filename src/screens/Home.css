@@ -3,6 +3,12 @@
   flex-direction: column;
   max-width: 20em;
   margin: 10px auto;
+  color: white;
+}
+
+.link:hover {
+  color: rgb(41,163,240);
+  text-decoration: none;
 }
 
 .title {
@@ -11,3 +17,9 @@
   max-width: 20em;
   margin: 10px auto;
 }
+
+body {
+  background-color: rgb(21, 32, 43);
+}
+
+

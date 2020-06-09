@@ -14,6 +14,15 @@ export const AddUser = ({ addUser, loading, error }) => {
   const handleAddUser = (event) => {
     event.preventDefault();
     addUser(state);
+    clear();
+  };
+
+  const clear = () => {
+    setState({
+      username: "",
+      displayName: "",
+      password: "",
+    });
   };
 
   const handleChange = (event) => {
@@ -30,6 +39,7 @@ export const AddUser = ({ addUser, loading, error }) => {
           <input
             type="text"
             name="username"
+            placeholder="username"
             value={state.username}
             autoFocus
             required
@@ -42,6 +52,7 @@ export const AddUser = ({ addUser, loading, error }) => {
           <input
             type="text"
             name="displayName"
+            placeholder="display name"
             value={state.displayName}
             autoFocus
             required
@@ -54,6 +65,7 @@ export const AddUser = ({ addUser, loading, error }) => {
           <input
             type="password"
             name="password"
+            placeholder="password"
             value={state.password}
             required
             onChange={handleChange}
@@ -61,7 +73,7 @@ export const AddUser = ({ addUser, loading, error }) => {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" disabled={loading} className="btn btn-primary">
+        <button type="submit" disabled={loading} className="btn btn-primary" id="register-button">
           Register
         </button>
       </form>
