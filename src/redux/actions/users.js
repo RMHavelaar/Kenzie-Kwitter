@@ -29,8 +29,8 @@ export const addUser = (credentials) => async (dispatch, getState) => {
   }
 };
 
-export const getUserList = (Id) => async (dispatch, getState) => {
-  // const userName = getState().auth.username;
+export const getUserList = (getUserListId) => async (dispatch, getState) => {
+  const userName = getState().auth.username;
   try {
     dispatch({ type: GETUSERLIST});
     const payload = await api.addMessage(getUserListId);
