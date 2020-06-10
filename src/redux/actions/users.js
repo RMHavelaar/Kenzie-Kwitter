@@ -4,6 +4,14 @@ export const ADDUSER = "ADDUSER";
 export const ADDUSER_SUCCESS = "ADDUSER_SUCCESS";
 export const ADDUSER_FAILURE = "ADDUSER_FAILURE";
 
+export const GETUSERLIST = "GETUSERLIST"; 
+export const GETUSERLIST_SUCCESS = "GETUSERLIST_SUCCESS";
+export const GETUSERLIST_FAILURE = "GETUSERLIST_FAILURE";
+
+export const REMOVE_USERLIST = "REMOVE_GETUSERLIST";
+export const REMOVE_USERLIST_SUCCESS = "REMOVE_GETUSERLIST_SUCCESS";
+export const REMOVE_USERLIST_FAILURE = "REMOVE_GETUSERLIST_FAILURE";
+
 /*
  ADDUSER ACTIONS (this is a thunk....)
  THUNKS: --> https://github.com/reduxjs/redux-thunk#whats-a-thunk
@@ -20,3 +28,25 @@ export const addUser = (credentials) => async (dispatch, getState) => {
     dispatch({ type: ADDUSER_FAILURE });
   }
 };
+
+export const getUserList = (Id) => async (dispatch, getState) => {
+  // const userName = getState().auth.username;
+  try {
+    dispatch({ type: GETUSERLIST});
+    const payload = await api.addMessage(getUserListId);
+    dispatch({ type: GETUSERLIST_SUCCESS, payload});
+  } catch (err){
+    dispatch({ type: GETUSERLIST_FAILURE, err});
+  }
+}
+
+export const removeGetUserlist = (getUserListId) =>  async (dispatch, getState) => {
+  const userName = getState().auth.username;
+  try {
+    dispatch({ type: REMOVE_GETUSERLIST});
+    const payload = await api.removeMessage(MessageId);
+    dispatch({ type: REMOVE_GETUSERLIST_SUCCESS, payload});
+  } catch (err){
+    dispatch({ type: REMOVE_GETUSERLIST_FAILURE, err});
+  }
+}
