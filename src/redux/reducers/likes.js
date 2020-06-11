@@ -42,7 +42,7 @@ export const likesReducer = (state = INITIAL_STATE, action) => {
                 return {
                 ...state,
                 loading: false
-     }    
+            }    
         case REMOVE_LIKES_FAILURE:
                 return {
                 ...state,
