@@ -1,5 +1,4 @@
 import api from "../../utils/api";
-import {login} from "./auth";
 
 // AUTH CONSTANTS
 export const DELETEUSER_PENDING = "DELETEUSER_PENDING";
@@ -18,7 +17,6 @@ export const deleteUser = (username) => async (dispatch, getState) => {
     const payload = await api.deleteUser(username);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     dispatch({ type: DELETEUSER_SUCCESS, payload: payload });
-    dispatch(login());
   } catch (err) {
     dispatch({ type: DELETEUSER_FAILURE, payload: err });
   }
