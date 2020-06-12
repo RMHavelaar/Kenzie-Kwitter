@@ -2,7 +2,13 @@ import { PROFILE_PENDING, PROFILE_SUCCESS, PROFILE_FAILURE } from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
-  user: {},
+  pictureLocation: "",
+  username: "",
+  displayName: "",
+  about: "",
+  googleId: null,
+  createdAt: "",
+  updatedAt: "",
   loading: false,
   error: "",
 };
@@ -17,7 +23,13 @@ export const profileReducer = (state = INITIAL_STATE, action) => {
     case PROFILE_SUCCESS:
       return {
         ...INITIAL_STATE,
-        user: action.payload,
+        username: action.payload.user.username,
+        pictureLocation: action.payload.user.pictureLocation,
+        displayName: action.payload.user.displayName,
+        about: action.payload.user.about,
+        googleId: null,
+        createdAt: action.payload.user.createdAt,
+        updatedAt: action.payload.user.updatedAt,
         loading: false,
       };
     case PROFILE_FAILURE:
