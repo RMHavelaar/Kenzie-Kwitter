@@ -1,5 +1,5 @@
 
-import { ADDUSER, ADDUSER_SUCCESS, ADDUSER_FAILURE, } from "../actions";
+import { ADDUSER, ADDUSER_SUCCESS, ADDUSER_FAILURE, GETUSERLIST, GETUSERLIST_SUCCESS, GETUSERLIST_FAILURE } from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
@@ -32,6 +32,25 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
         loading: false,
       };
+
+    case GETUSERLIST:
+      return {
+        ...INITIAL_STATE,
+        loading: true,
+      };
+      
+    case GETUSERLIST_SUCCESS:
+      return {
+        ...INITIAL_STATE,
+        loading: true,
+      };  
+
+    case GETUSERLIST_FAILURE:
+      return {
+        ...INITIAL_STATE,
+        loading: true,
+      };    
+
     default:
       return state;
   }

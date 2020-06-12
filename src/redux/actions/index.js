@@ -5,3 +5,5 @@ export * from "./likes";
 export * from "./putPhoto";
 export * from "./getPhoto";
 export * from "./deleteUser";
+export * from "./messages";
+
