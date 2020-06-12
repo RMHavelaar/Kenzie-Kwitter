@@ -44,3 +44,28 @@ An overview of the starting scaffolding architecture can be found in `./dependen
 2. Scrum board - this shows your scrum board which has tickets with descriptions and assignees. it could be a trello board or a gitlab/github project board or similar.
 3. Retrospective board or notes - show that your team discussed how to improve its process through notes about what went well/what went poorly/action items.
    It could be general notes or a funretro.io board.
+
+
+
+
+
+
+
+        <Card id="messageCard">
+          <Card.Content>
+            {/* Empty Profile Pic */}
+            {/* <Image src="./src/assets/images/EmptyProfilePic.png" /> */}
+            <Card.Header>
+              {/* Path may be wrong but this will fill in the Users name on the Message Card */}
+              <Link to={`/profile/${this.props.username}`}>
+                <h2>{this.props.username}</h2>
+              </Link>
+            </Card.Header>
+            <Card.Description>
+              {/* This is the Message Text */}
+              <p>{this.props.text}</p>
+            </Card.Description>
+          </Card.Content>
+          <Card.Content>{/* What else do we want? */}</Card.Content>
+          
+        </Card>

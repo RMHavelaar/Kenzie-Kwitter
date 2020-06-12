@@ -1,12 +1,13 @@
 import React from "react";
-import ProptTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Menu.css";
+import KwitterLogo from "../../assets/images/Kwitter_square.png";
 
 export const Menu = ({ isAuthenticated, logout }) => {
   return (
     <div id="menu">
-      <h1>Kwitter</h1>
+      <img id="KwitterLogo" src={KwitterLogo} alt="KwitterLogo" />
       {isAuthenticated && (
         <div id="menu-links">
           <Link to="/messagefeed">Message Feed</Link>
@@ -25,6 +26,6 @@ Menu.defaultProps = {
 };
 
 Menu.propTypes = {
-  isAuthenticated: ProptTypes.bool.isRequired,
-  logout: ProptTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
 };

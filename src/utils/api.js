@@ -35,6 +35,54 @@ class API {
     this.axiosInstance = axiosInstance;
   }
 
+  // TODO: test to see if this request will work: 
+  async profile(username) {
+    try {
+      const result = await this.axiosInstance.get(`/users/${username}`);
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+    }
+  }
+
+  async addUser({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users", {
+        username,
+        displayName,
+        password,
+      });
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+    }
+  }
+
+  async addLike(messageId) {
+    try {
+      const result = await this.axiosInstance.post('/likes', {
+        messageId
+      })
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+
+    }
+  }
+  
+  async removeLike(likeId) {
+    try {
+      const result = await this.axiosInstance.delete(`/likes/${likeId}`)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+
+    }
+  }
+
+
   async login({ username, password }) {
     try {
       const result = await this.axiosInstance.post("/auth/login", {
@@ -53,6 +101,16 @@ class API {
       await this.axiosInstance.get("/auth/logout");
     } catch (err) {
       helpMeInstructor(err);
+    }
+  }
+  async getMessages() {
+    try {
+      const result = await this.axiosInstance.get(`/messages`);
+      console.log(result);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
     }
   }
 }

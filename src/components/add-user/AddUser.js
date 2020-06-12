@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-
 import PropTypes from "prop-types";
 import { Loader } from "../loader";
+import "./AddUser.css";
 
-import "./LoginForm.css";
-
-export const LoginForm = ({ login, loading, error }) => {
+export const AddUser = ({ addUser, loading, error }) => {
   // Not to be confused with "this.setState" in classes
   const [state, setState] = useState({
     username: "",
+    displayName: "",
     password: "",
   });
 
-  const handleLogin = (event) => {
+  const handleAddUser = (event) => {
     event.preventDefault();
-    event.target.reset();
-    login(state);
+    addUser(state);
     clear();
+  };
+
+  const clear = () => {
+    setState({
+      username: "",
+      displayName: "",
+      password: "",
+    });
   };
 
   const handleChange = (event) => {
@@ -25,16 +31,9 @@ export const LoginForm = ({ login, loading, error }) => {
     setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
   };
 
-  const clear = () => {
-    setState({
-      username: "",
-      password: "",
-    });
-  };
-
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
+      <form id="add-user" onSubmit={handleAddUser}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
@@ -42,6 +41,19 @@ export const LoginForm = ({ login, loading, error }) => {
             name="username"
             placeholder="username"
             value={state.username}
+            autoFocus
+            required
+            onChange={handleChange}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="displayName">Display Name</label>
+          <input
+            type="text"
+            name="displayName"
+            placeholder="display name"
+            value={state.displayName}
             autoFocus
             required
             onChange={handleChange}
@@ -61,18 +73,19 @@ export const LoginForm = ({ login, loading, error }) => {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" disabled={loading} className="btn btn-primary" id="login-button">
-          Login
+        <button type="submit" disabled={loading} className="btn btn-primary" id="register-button">
+          Register
         </button>
       </form>
+
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
   );
 };
 
-LoginForm.propTypes = {
-  login: PropTypes.func.isRequired,
+AddUser.propTypes = {
+  addUser: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   error: PropTypes.string,
 };
