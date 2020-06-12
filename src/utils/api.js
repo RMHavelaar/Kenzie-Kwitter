@@ -57,7 +57,6 @@ class API {
   async getPhoto(username) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}/picture`);
-      console.log(result, "getPhoto")
       return result;
     } catch (err) {
       helpMeInstructor(err);
