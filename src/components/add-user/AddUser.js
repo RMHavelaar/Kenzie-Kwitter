@@ -4,6 +4,7 @@ import { Loader } from "../loader";
 import "./AddUser.css";
 
 export const AddUser = ({ addUser, loading, error }) => {
+  // Not to be confused with "this.setState" in classes
   const [state, setState] = useState({
     username: "",
     displayName: "",

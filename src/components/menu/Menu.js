@@ -10,7 +10,6 @@ export const Menu = ({ isAuthenticated, logout }) => {
       <img id="KwitterLogo" src={KwitterLogo} alt="KwitterLogo" />
       {isAuthenticated && (
         <div id="menu-links">
-          <Link to="/profiles/:username">Home</Link>
           <Link to="/messagefeed">Message Feed</Link>
           <Link to="/" onClick={logout}>
             Logout
