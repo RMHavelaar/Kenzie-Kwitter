@@ -46,6 +46,16 @@ class API {
     }
   }
 
+  async getUserList() {
+    try {
+      const result = await this.axiosInstance.get("/users?limit=100&offset=0");
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+    }
+  }
+
   async addUser({ username, displayName, password }) {
     try {
       const result = await this.axiosInstance.post("/users", {
