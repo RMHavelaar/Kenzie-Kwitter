@@ -11,7 +11,7 @@ class API {
     const axiosInstance = axios.create({
       baseURL: "https://kwitter-api.herokuapp.com/",
       timeout: 30000,
-      headers: { Authorization: `Bearer ${getToken()}` } 
+      headers: { Authorization: `Bearer ${getToken()}` },
     });
 
     // Add a request interceptor to attach a
@@ -20,7 +20,7 @@ class API {
         ...config,
         headers: {
           ...config.headers,
-          Authorization: `Bearer ${getToken()}`
+          Authorization: `Bearer ${getToken()}`,
         },
       }),
       (error) => Promise.reject(error)
@@ -46,7 +46,10 @@ class API {
 
   async putPhoto(username, picture) {
     try {
-      const result = await this.axiosInstance.put(`/users/${username}/picture`, picture);
+      const result = await this.axiosInstance.put(
+        `/users/${username}/picture`,
+        picture
+      );
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -58,6 +61,16 @@ class API {
       const result = await this.axiosInstance.get(`/users/${username}/picture`);
       return result;
     } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+
+  async getUserList() {
+    try {
+      const result = await this.axiosInstance.get("/users?limit=100&offset=0");
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
       helpMeInstructor(err);
     }
   }
@@ -86,26 +99,23 @@ class API {
 
   async addLike(messageId) {
     try {
-      const result = await this.axiosInstance.post('/likes', {
-        messageId
-      })
+      const result = await this.axiosInstance.post("/likes", {
+        messageId,
+      });
       return result;
     } catch (err) {
       helpMeInstructor(err);
-
     }
   }
-  
+
   async removeLike(likeId) {
     try {
-      const result = await this.axiosInstance.delete(`/likes/${likeId}`)
+      const result = await this.axiosInstance.delete(`/likes/${likeId}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
-
     }
   }
-
 
   async login({ username, password }) {
     try {
@@ -125,6 +135,17 @@ class API {
       await this.axiosInstance.get("/auth/logout");
     } catch (err) {
       helpMeInstructor(err);
+    }
+  }
+  
+  async getMessages() {
+    try {
+      const result = await this.axiosInstance.get(`/messages`);
+      console.log(result);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
     }
   }
 }
