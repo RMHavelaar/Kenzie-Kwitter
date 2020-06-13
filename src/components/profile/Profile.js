@@ -24,12 +24,36 @@ class Profile extends Component {
     this.props.putPhoto(formData);
   };
 
-  //   TODO: if statements for size less than 200000 and file types gif, jpeg or png
   handleOnChange = (event) => {
     event.preventDefault();
-    this.setState({
-      picture: event.target.files[0],
-    });
+    console.log(event.target.files[0].name, "from handle onchange");
+    if (this.checkImageType(event) && this.checkImageSize(event)) {
+      this.setState({
+        picture: event.target.files[0],
+      });
+    }
+  };
+
+  checkImageSize = (event) => {
+    let image = event.target.files[0];
+    if (image.size > 200000) {
+      alert("Image must be smaller than 200KB");
+      return false;
+    }
+    return true;
+  };
+
+  checkImageType = (event) => {
+    let image = event.target.files[0];
+    if (
+      image.type !== "image/png" &&
+      image.type !== "image/jpeg" &&
+      image.type !== "image/gif"
+    ) {
+      alert("File type must be png, jpeg, or gif");
+      return false;
+    }
+    return true;
   };
 
   handleDelete = (event) => {
@@ -38,14 +62,6 @@ class Profile extends Component {
     alert("Your account has been successfully deleted");
     this.props.login();
   };
-
-  // TODO: fix componentDidUpdate below
-  // componentDidUpdate(prevProps) {
-  //     if (prevProps.user !== this.props.user) {
-  //         console.log(this.props.user)
-  //     this.setState({displayName: this.props.user.user.displayName})
-  //     }
-  // }
 
   render() {
     return (
@@ -66,7 +82,8 @@ class Profile extends Component {
                 fillRule="evenodd"
                 d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
               />
-            </svg>{" "}Profile
+            </svg>{" "}
+            Profile
           </h3>
           <img
             src={
@@ -75,6 +92,7 @@ class Profile extends Component {
                 : defaultImage
             }
             className="card-img-top"
+            id="profile-image"
             alt="profile_image"
           />
           <form id="photo-form">
@@ -112,7 +130,7 @@ class Profile extends Component {
               </button>
             </div>
           </form>
-          <div className="card-body">
+          <div className="card-body" id="card-info">
             <h6 className="card-title">Username: {this.props.username} </h6>
             <p className="card-text">
               Display Name:{" "}
