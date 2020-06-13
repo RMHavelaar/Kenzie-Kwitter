@@ -38,7 +38,6 @@ class API {
   async profile(username) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
-      console.log(result, "fromAPI");
       return result;
     } catch (err) {
       helpMeInstructor(err);

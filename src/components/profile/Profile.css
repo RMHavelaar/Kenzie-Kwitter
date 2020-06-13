@@ -1,8 +1,14 @@
+
 #profile-card {
     width: 20em;
     margin: 20px auto;
     background-color: rgb(77,77,77);
     color: rgb(41,163,240);
+}
+
+#profile-image {
+    border-top: 3px solid rgb(21,32,43);
+    border-bottom: 3px solid rgb(21,32,43);
 }
 
 #title {
@@ -14,6 +20,12 @@
     font-size: small;
     display: flex;
     flex-direction: row;
+    border-bottom: 1px solid rgb(21,32,43);
+    padding-bottom: 0.5em;
+}
+
+#card-info {
+    border-bottom: 1px solid rgb(21,32,43);
 }
 
 #myFile {
@@ -40,9 +52,10 @@
 
 #delete-button {
     margin-left: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     width: 45%;
     font-size: small;
+    margin-top: 0.5em;
 }
 
 
