@@ -1,22 +1,38 @@
 import React, { Component } from 'react';
 import {Typeahead} from 'react-bootstrap-typeahead';
+import { Card, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { getUserList } from '../../redux/actions';
 
-
-class GetUserList extends component {
+class GetUserList extends Component {
     state = { userName: "", displayName: "" };
+    componentDidMount() {
+      getUserList()
+    }
 render() {  
-//     return(
-//   <Card style={{ width: '18rem' }}>
-//   <Card.Img variant="top" src="holder.js/100px180" />
-//   <Card.Body>
-//     <Card.Title>Card Title</Card.Title>
-//     <Card.Text>
-//       <Typeahead />
-//       the card's content.
-//     </Card.Text>
-//     <Button variant="primary">Go somewhere</Button>
-//   </Card.Body>
-// </Card>
-//     )
+    return(
+  <Card bg="secondary" style={{ width: '18rem' }}>
+  <Card.Body>
+    <Card.Title>Look up user</Card.Title>
+    <Card.Text>
+      <Typeahead
+/>
+    </Card.Text>
+    <Button variant="primary">Click to view</Button>
+  </Card.Body>
+</Card>
+    )
   }   
 }
+
+const mapStateToProps = (state) => ({
+  users: state.users.usersList,
+  loading: state.users.loading,
+  error: state.users.error,
+})
+
+const mapDispatchToProps = {
+  getUserList
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GetUserList)

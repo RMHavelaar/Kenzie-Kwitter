@@ -9,3 +9,40 @@
     padding-left: 1em;
 }
 
+#photo-form {
+    font-size: small;
+    display: flex;
+    flex-direction: row;
+}
+
+#myFile {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+#photo-input {
+    width: 70%;
+}
+
+#photo-button {
+    width: 30%;
+}
+
+#upload-button {
+    background-color: rgb(41,163,240);
+    font-size: small;
+}
+
+#upload-button:hover {
+    background-color: rgb(21,32,43);
+}
+
+#delete-button {
+    margin-left: 1em;
+    margin-bottom: 1em;
+    width: 40%;
+    font-size: small;
+}
+
+
+
