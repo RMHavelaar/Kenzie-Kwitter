@@ -12,7 +12,7 @@ class MessageFeed extends React.Component {
     let messages = this.props.messages;
     return (
       <span>
-        <h1> Messages </h1>
+        <h1> Messages 645454 </h1>
         {messages.map((message) => {
           return < MessageCard username = {message.username} key = { message.id} text = {message.text} />
         })}

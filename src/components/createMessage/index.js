@@ -1,6 +1,4 @@
-import { enhancer } from "./CreateMessage.enhancer";
-import { NewMessageForm } from "./NewMessageForm";
+import { enhancer } from "./createMessage.enhancer";
+import { PostMessage } from "./createMessageForm";
 
-export const NewMessageFormContainer = enhancer(NewMessageForm);
-
-
+export const PostMessageContainer = enhancer(PostMessage);

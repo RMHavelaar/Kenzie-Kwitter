@@ -1,9 +1,12 @@
 import React from "react";
-// import Spinner from 'react-bootstrap/Spinner'
+import Spinner from "react-bootstrap/Spinner";
+import Button from "react-bootstrap/Button";
 
-
-// {/* <Spinner animation="border" role="status" variant="primary">
-// <span className="sr-only">Loading...</span>
-// </Spinner> */}
-
-export const Loader = () => <>LOADING.......</>;
+export const Loader = () => {
+  return (
+    <Button variant="primary" disabled>
+      <Spinner as="span" animation="grow" role="status" aria-hidden="true" />
+      Loading...
+    </Button>
+  );
+};

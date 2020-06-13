@@ -1,50 +1,57 @@
-import React, { useState } from 'react';
-import {Loader} from '../loader';
-import ProptTypes from 'prop-types';
-import './CreateMessage.css';
+import React, { useState } from "react";
 
-export const NewMessageForm = ({newMessage, loading, error}) => {
+import { Button, Card, Container } from "react-bootstrap";
 
-    const [state, setState] = useState({
-        text:'',
-    })
+export const PostMessage = ({
+  createMessage,
+  listOfMessages,
 
-    const handleCreate = (event) => {
-        event.preventDefault()
-        console.log(event.currentTarget)        
-        newMessage(state)
-    }
+  error,
+}) => {
+  const [state, setState] = useState({
+    text: "",
+  });
 
-    const handleChange =(event) => {
-        const inputName = event.target.name
-        const inputValue = event.target.value
-        setState((prevState) => ({...prevState, [inputName]: inputValue}))
-    }
-
-    return(
-        <>
-        <form id="new-message-form" onSubmit={handleCreate}>
-      <label htmlFor="text">Enter message</label>
-      <input
-       type="text"
-       name="text"
-       value={state.text}
-       autoFocus
-       required
-       onChange={handleChange}
-     />
-     <button type="submit" disabled={loading}>
-     Submit
-     </button>
-   </form>
-   {loading && <Loader />}
-   {error && <p style={{ color: "red" }}>{error.message}</p>}
-     </>
-    )
-}
-
-NewMessageForm.propTypes = {
-    newMessage: ProptTypes.func.isRequired,
-    loading: ProptTypes.bool,
-    error: ProptTypes.string,
+  const submitMessage = (event) => {
+    event.preventDefault();
+    createMessage(state);
+    setState((prevState) => ({ ...prevState, text: "" }));
+    setTimeout(listOfMessages, 50);
   };
+
+  const handleChange = (event) => {
+    const inputName = event.target.name;
+    const inputValue = event.target.value;
+    setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
+  };
+
+  return (
+    <React.Fragment>
+      <Container>
+        <form id="messageForm" onSubmit={submitMessage}>
+          <Card border="info" style={{ marginBottom: "0px", width: "35%" }}>
+            <Card>
+              <Card.Header>Create Message</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  <input
+                    type="text"
+                    name="text"
+                    value={state.text}
+                    onChange={handleChange}
+                  />
+                  <Button variant="primary">Post</Button>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Card>
+        </form>
+      </Container>
+
+      {error && <p style={{ color: "red" }}>{error.message}</p>}
+      {console.log(state)}
+    </React.Fragment>
+  );
+};
+
+export default PostMessage;
