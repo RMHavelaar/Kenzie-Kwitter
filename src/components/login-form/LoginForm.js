@@ -4,7 +4,6 @@ import { Loader } from "../loader";
 import "./LoginForm.css";
 
 export const LoginForm = ({ login, loading, error }) => {
-  // Not to be confused with "this.setState" in classes
   const [state, setState] = useState({
     username: "",
     password: "",

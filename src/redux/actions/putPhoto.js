@@ -16,7 +16,6 @@ export const putPhoto = (picture) => async (dispatch, getState) => {
   try {
     dispatch({ type: PHOTO_PENDING });
     let username = getState().auth.username;
-    console.log(picture, "Hi")
     const payload = await api.putPhoto(username, picture);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     dispatch({ type: PHOTO_SUCCESS, payload });
