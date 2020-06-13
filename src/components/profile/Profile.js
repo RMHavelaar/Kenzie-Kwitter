@@ -26,7 +26,6 @@ class Profile extends Component {
 
   handleOnChange = (event) => {
     event.preventDefault();
-    console.log(event.target.files[0].name, "from handle onchange");
     if (this.checkImageType(event) && this.checkImageSize(event)) {
       this.setState({
         picture: event.target.files[0],

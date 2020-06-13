@@ -5,7 +5,6 @@ import { Button, Card, Container } from "react-bootstrap";
 export const PostMessage = ({
   createMessage,
   listOfMessages,
-
   error,
 }) => {
   const [state, setState] = useState({
@@ -49,7 +48,6 @@ export const PostMessage = ({
       </Container>
 
       {error && <p style={{ color: "red" }}>{error.message}</p>}
-      {console.log(state)}
     </React.Fragment>
   );
 };

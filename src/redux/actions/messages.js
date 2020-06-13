@@ -9,16 +9,12 @@ export const CREATE_MESSAGE = "CREATE_MESSAGE";
 export const CREATE_MESSAGE_SUCCESS = "CREATE_MESSAGE_SUCCESS";
 export const CREATE_MESSAGE_FAILURE = "CREATE_MESSAGE_FAILURE";
 
-// export const DELETE_MESSAGE = "DELETE_MESSAGE";
-
 export const getMessagesList = () => async (dispatch, getState) => {
   try {
     const payload = await api.getMessages();
-    console.log(payload);
+
     dispatch({ type: GET_LIST_MESSAGES, payload });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 export const createMessage = (credentials) => async (dispatch, getState) => {
@@ -30,8 +26,6 @@ export const createMessage = (credentials) => async (dispatch, getState) => {
     dispatch({ type: CREATE_MESSAGE_FAILURE });
   }
 };
-
-
 
 // export const removeMessages = (messageId) =>  async (dispatch, getState) => {
 //   const userName = getState().auth.username;
