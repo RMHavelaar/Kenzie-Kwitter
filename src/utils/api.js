@@ -11,7 +11,7 @@ class API {
     const axiosInstance = axios.create({
       baseURL: "https://kwitter-api.herokuapp.com/",
       timeout: 30000,
-      headers: { Authorization: `Bearer ${getToken()}` } 
+      headers: { Authorization: `Bearer ${getToken()}` },
     });
 
     // Add a request interceptor to attach a
@@ -20,7 +20,7 @@ class API {
         ...config,
         headers: {
           ...config.headers,
-          Authorization: `Bearer ${getToken()}`
+          Authorization: `Bearer ${getToken()}`,
         },
       }),
       (error) => Promise.reject(error)
@@ -35,30 +35,13 @@ class API {
     this.axiosInstance = axiosInstance;
   }
 
+  // TODO: test to see if this request will work: 
   async profile(username) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
-      console.log(result, "fromAPI")
       return result;
     } catch (err) {
-      helpMeInstructor(err);
-    }
-  }
-
-  async putPhoto(username, picture) {
-    try {
-      const result = await this.axiosInstance.put(`/users/${username}/picture`, picture);
-      return result;
-    } catch (err) {
-      helpMeInstructor(err);
-    }
-  }
-
-  async getPhoto(username) {
-    try {
-      const result = await this.axiosInstance.get(`/users/${username}/picture`);
-      return result;
-    } catch (err) {
+      // Instructor is logging you out because this failed
       helpMeInstructor(err);
     }
   }
@@ -72,15 +55,7 @@ class API {
       });
       return result;
     } catch (err) {
-      helpMeInstructor(err);
-    }
-  }
-
-  async deleteUser(username) {
-    try {
-      const result = await this.axiosInstance.delete(`/users/${username}`);
-      return result;
-    } catch (err) {
+      // Instructor is logging you out because this failed
       helpMeInstructor(err);
     }
   }
@@ -126,6 +101,16 @@ class API {
       await this.axiosInstance.get("/auth/logout");
     } catch (err) {
       helpMeInstructor(err);
+    }
+  }
+  async getMessages() {
+    try {
+      const result = await this.axiosInstance.get(`/messages`);
+      console.log(result);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
     }
   }
 }
