@@ -1,4 +1,4 @@
-import api from "../../../utils/api";
+import api from "../../utils/api";
 
 // AUTH CONSTANTS
 export const LOGIN = "AUTH/LOGIN";

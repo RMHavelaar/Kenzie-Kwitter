@@ -6,7 +6,7 @@ import "./Home.css";
 export const MessagesScreen = () => (
     <>
     <MenuContainer/>
-    <div className ="title"><h5>Messages</h5></div>
+    <div className ="title"><h5>Messages!!!</h5></div>
     <MessagesContainer/>
     <Link to="/" className="link">
         Home

@@ -1,4 +1,4 @@
 import { enhancer } from "./Messages.enhancer";
-import  MessageFeed  from "./MessageFeed";
+import  MessageCard  from "./MessageCard";
 
-export const MessagesContainer = enhancer(MessageFeed);
+export const MessagesContainer = enhancer(MessageCard);
