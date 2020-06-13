@@ -1,12 +1,15 @@
 import { connect } from "react-redux";
-import { getMessagesList } from "../../redux/actions/messages";
+import { addUser } from "../../redux/actions/users";
 
+// https://react-redux.js.org/using-react-redux/connect-mapstate#connect-extracting-data-with-mapstatetoprops
 const mapStateToProps = (state) => ({
-  messages: state.messages.messages,
+  loading: state.users.loading,
+  error: state.users.error,
 });
 
+// https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops
 const mapDispatchToProps = {
-  getMessagesList,
+  addUser,
 };
 
 export const enhancer = connect(mapStateToProps, mapDispatchToProps);
