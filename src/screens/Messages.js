@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MessagesContainer, MenuContainer, NewMessageFormContainer } from "../components";
+import { MessagesContainer, MenuContainer,  } from "../components";
 import "./Home.css";
 
 export const MessagesScreen = () => (

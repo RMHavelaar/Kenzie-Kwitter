@@ -24,13 +24,10 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         text,
-      };
-    }
-    case CREATE_MESSAGE:
-      return {
-        ...INITIAL_STATE,
         loading: true,
       };
+    }
+  
     case CREATE_MESSAGE_SUCCESS:
       return {
         ...INITIAL_STATE,
