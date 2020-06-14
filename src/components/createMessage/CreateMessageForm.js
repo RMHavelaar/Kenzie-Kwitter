@@ -22,12 +22,30 @@ export const PostMessage = ({ createMessage, MessageFeed, error }) => {
 
   return (
     <React.Fragment>
-      <div id="createMessageContainer" >
-        <form id="createMessageForm" onSubmit={sendMessage}>
-          <Card border="info" style={{width:"300px", position:""}}>
+      <div id="createMessageContainer">
+        <form id="createMessageForm" onSubmit={sendMessage} style={{}}>
+          <Card
+            border="info"
+            style={{
+              width: "25rem",
+              height: "8rem",
+            }}
+          >
             <Card>
-              <Card.Header>Start your Message</Card.Header>
-              <Card.Body>
+              <Card.Header
+                style={{
+                  backgroundColor: "#15202b",
+                  color: "#ffffff",
+                }}
+              >
+                Post a Kweet
+              </Card.Header>
+              <Card.Body
+                style={{
+                  backgroundColor: "#15202b",
+                  color: "#ffffff",
+                }}
+              >
                 <Card.Text>
                   <input
                     type="text"
@@ -35,7 +53,9 @@ export const PostMessage = ({ createMessage, MessageFeed, error }) => {
                     value={state.text}
                     onChange={handleChange}
                   />
-                  <Button variant="primary">Post</Button>
+                  <Button style={{ backgroundColor:"#1DA1F2" }} variant="primary">
+                   Kweet
+                  </Button>
                 </Card.Text>
               </Card.Body>
             </Card>

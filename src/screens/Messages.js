@@ -13,10 +13,12 @@ export const MessagesScreen = () => (
     <div className="title" style={{ position: "relative", left: "35%" }}>
       <h4>Message Feed</h4>
     </div>
-    <MessagesContainer />
-    <PostMessageContainer />
     <Link to="/" className="link">
       Home
     </Link>
+    <PostMessageContainer />
+    <MessagesContainer />
+
+
   </>
 );

@@ -34,7 +34,7 @@ class Messages extends React.Component {
               {username}
             </Card.Header>
             <p style={{ textAlign: "left" }}>{text}</p>
-            <Card.Link href="#">Delete</Card.Link>
+            <Card.Link style={{ color:"#1DA1F2" }} href="#" >Delete</Card.Link>
           </Card.Body>
         </Card>
       </div>
