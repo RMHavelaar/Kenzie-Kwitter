@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Button, Card } from "react-bootstrap";
 
-export const PostMessage = ({ createMessage, MessageFeed, error }) => {
+export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
   const [state, setState] = useState({
     text: "",
   });
@@ -12,7 +12,7 @@ export const PostMessage = ({ createMessage, MessageFeed, error }) => {
     console.log("hello");
     createMessage(state);
     setState((prevState) => ({ ...prevState, text: "" }));
-    setTimeout(MessageFeed);
+    setTimeout(getMessagesFeed(), 1000);
   };
 
   const handleChange = (event) => {

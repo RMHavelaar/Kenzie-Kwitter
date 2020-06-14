@@ -21,9 +21,10 @@ export const createMessage = (credentials) => async (dispatch, getState) => {
   try {
     dispatch({ type: CREATE_MESSAGE });
     const payload = await api.createMessage(credentials);
+    console.log({payload})
     dispatch({ type: CREATE_MESSAGE_SUCCESS, payload });
   } catch (err) {
-    dispatch({ type: CREATE_MESSAGE_FAILURE });
+    dispatch({ type: CREATE_MESSAGE_FAILURE, payload: err.messages});
   }
 };
 
