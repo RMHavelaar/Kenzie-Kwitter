@@ -1,11 +1,21 @@
 import React from "react";
-import { MenuContainer, ProfileContainer } from "../components";
-import GetUserList from '../components/getuserlist/GetUserList';
+import {
+  MenuContainer,
+  ProfileContainer,
+  GetUserListContainer,
+} from "../components";
+import "./Home.css";
 
 export const ProfileScreen = () => (
   <>
     <MenuContainer />
-    <ProfileContainer />
-    <GetUserList />
+    <div id="profileAndUserList">
+      <div id="profileContainer">
+        <ProfileContainer />
+      </div>
+      <div id="userListContainer">
+        <GetUserListContainer />
+      </div>
+    </div>
   </>
 );

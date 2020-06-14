@@ -70,7 +70,6 @@ class API {
       const result = await this.axiosInstance.get("/users?limit=100&offset=0");
       return result;
     } catch (err) {
-      // Instructor is logging you out because this failed
       helpMeInstructor(err);
     }
   }
@@ -125,7 +124,6 @@ class API {
       });
       return result;
     } catch (err) {
-      // Instructor is logging you out because this failed
       helpMeInstructor(err);
     }
   }

@@ -1,6 +1,5 @@
 import { PROFILE_PENDING, PROFILE_SUCCESS, PROFILE_FAILURE } from "../actions";
 
-// INITIAL STATE
 const INITIAL_STATE = {
   pictureLocation: "",
   username: "",

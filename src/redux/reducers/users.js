@@ -1,7 +1,12 @@
+import {
+  ADDUSER,
+  ADDUSER_SUCCESS,
+  ADDUSER_FAILURE,
+  GETUSERLIST,
+  GETUSERLIST_SUCCESS,
+  GETUSERLIST_FAILURE,
+} from "../actions";
 
-import { ADDUSER, ADDUSER_SUCCESS, ADDUSER_FAILURE, GETUSERLIST, GETUSERLIST_SUCCESS, GETUSERLIST_FAILURE } from "../actions";
-
-// INITIAL STATE
 const INITIAL_STATE = {
   username: "",
   password: "",
@@ -39,20 +44,19 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...INITIAL_STATE,
         loading: true,
       };
-      
+
     case GETUSERLIST_SUCCESS:
-      console.log(action.payload)
       return {
         ...INITIAL_STATE,
         usersList: action.payload,
-        loading: true,
-      };  
+        loading: false,
+      };
 
     case GETUSERLIST_FAILURE:
       return {
         ...INITIAL_STATE,
-        loading: true,
-      };    
+        loading: false,
+      };
 
     default:
       return state;

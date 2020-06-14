@@ -23,4 +23,20 @@ body {
   background-color: rgb(21, 32, 43);
 }
 
+#profileAndUserList {
+  display: flex;
+}
+
+#profileContainer {
+  display: flex;
+  width: 50%;
+  height: 46em;
+}
+
+#userListContainer {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
 

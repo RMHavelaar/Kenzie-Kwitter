@@ -1,57 +1,56 @@
-import React, { Component } from 'react';
-import {Typeahead} from 'react-bootstrap-typeahead';
-import { Card, Button } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { getUserList, lookUpProfile } from '../../redux/actions';
-import { Loader } from '../loader'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "./GetUserList.css";
+import defaultImage from "../../assets/images/EmptyProfilePic.png";
+// import { Loader } from '../loader'
 
 class GetUserList extends Component {
-    state = { label: "", displayName: "" };
-    componentDidMount() {
-      this.props.getUserList()
-    }
+  state = { usersList: [] };
 
-    handleSubmit = (event) => {
-      let lookUp = this.state[0].label
-      this.props.lookUpProfile(lookUp)
-    }
+  // componentDidMount() {
+  //   this.props.getUserList()
+  // }
 
-render() { 
-  console.log(this.props.usersList.users)
-  if(this.props.usersList.length !== 0) {
-    const list = this.props.usersList.users.map(user => ({label: user.username}))
-    return(
-  <Card bg="secondary" style={{ width: '18rem' }}>
-  <Card.Body>
-    <Card.Title>Look up user</Card.Title>
-    <Card.Text>
-      <Typeahead
-        id = "lookUpUser"
-        onChange = {(selected) => {
-          this.setState(selected)
-        }}
-        options = {list}
-        selected = {this.state.label}
-/>
-    </Card.Text>
-    <Button onClick={this.handleSubmit} variant="primary">Click to view</Button>
-  </Card.Body>
-</Card>
-    )
-  }else{
-    return (<Loader></Loader>)
+  handleLoadUsers = (event) => {
+    this.props.getUserList();
+  };
+
+  render() {
+    let users = this.props.usersList.users;
+    return (
+      <React.Fragment>
+        <button type="submit" className="btn btn-primary" id="load-button" onClick={this.handleLoadUsers}>Load users</button>
+        <h3 id="list-title">User List</h3>
+        {users.map((user) => (
+            <div key={user.username} className="card" id="profile-card">
+              <img
+                src={
+                  user.pictureLocation
+                    ? `https://kwitter-api.herokuapp.com${user.pictureLocation}`
+                    : defaultImage
+                }
+                className="card-img-top"
+                id="profile-image"
+                alt="profile_image"
+              />
+              <div className="card-body" id="card-info">
+                <h6 className="card-title">Username: {user.username} </h6>
+                <p className="card-text">
+                  Display Name:
+                  {user.displayName}
+                </p>
+              </div>
+            </div>
+          ))};
+      </React.Fragment>
+    );
   }
-}   
 }
 
-const mapStateToProps = (state) => ({
-  usersList: state.users.usersList,
-  loading: state.users.loading,
-  error: state.users.error,
-})
+GetUserList.propTypes = {
+  getUserList: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+};
 
-const mapDispatchToProps = {
-  getUserList, lookUpProfile
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(GetUserList)
+export default GetUserList;
