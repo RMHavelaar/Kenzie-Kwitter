@@ -28,6 +28,7 @@ class Messages extends React.Component {
               style={{
                 color: "#ffffff",
                 border: ".5px solid white",
+                fontStyle:"oblique 40deg"
               }}
             >
               <span style={{ color: "#1DA1F2" }}>@</span>

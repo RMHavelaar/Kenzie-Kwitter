@@ -9,6 +9,7 @@ export const PostMessage = ({ createMessage, MessageFeed, error }) => {
 
   const sendMessage = (event) => {
     event.preventDefault();
+    console.log("hello");
     createMessage(state);
     setState((prevState) => ({ ...prevState, text: "" }));
     setTimeout(MessageFeed);
@@ -31,34 +32,36 @@ export const PostMessage = ({ createMessage, MessageFeed, error }) => {
               height: "8rem",
             }}
           >
-            <Card>
-              <Card.Header
-                style={{
-                  backgroundColor: "#15202b",
-                  color: "#ffffff",
-                }}
-              >
-                Post a Kweet
-              </Card.Header>
-              <Card.Body
-                style={{
-                  backgroundColor: "#15202b",
-                  color: "#ffffff",
-                }}
-              >
-                <Card.Text>
-                  <input
-                    type="text"
-                    name="text"
-                    value={state.text}
-                    onChange={handleChange}
-                  />
-                  <Button style={{ backgroundColor:"#1DA1F2" }} variant="primary">
-                   Kweet
-                  </Button>
-                </Card.Text>
-              </Card.Body>
-            </Card>
+            <Card.Header
+              style={{
+                backgroundColor: "#15202b",
+                color: "#ffffff",
+              }}
+            >
+              Post a Kweet
+            </Card.Header>
+            <Card.Body
+              style={{
+                backgroundColor: "#15202b",
+                color: "#ffffff",
+              }}
+            >
+              <Card.Text>
+                <input
+                  type="text"
+                  name="text"
+                  value={state.text}
+                  onChange={handleChange}
+                />
+                <Button
+                  style={{ backgroundColor: "#1DA1F2" }}
+                  variant="primary"
+                  type="submit"
+                >
+                  Kweet
+                </Button>
+              </Card.Text>
+            </Card.Body>
           </Card>
         </form>
       </div>

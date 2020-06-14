@@ -14,11 +14,9 @@ export const MessagesScreen = () => (
       <h4>Message Feed</h4>
     </div>
     <Link to="/" className="link">
-      Home
+      Home Page
     </Link>
     <PostMessageContainer />
     <MessagesContainer />
-
-
   </>
 );
