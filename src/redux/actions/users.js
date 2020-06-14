@@ -28,7 +28,7 @@ export const addUser = (credentials) => async (dispatch, getState) => {
 export const getUserList = () => async (dispatch, getState) => {
   try {
     dispatch({ type: GETUSERLIST});
-    const payload = await api.getUserlist();
+    const payload = await api.getUserList();
     dispatch({ type: GETUSERLIST_SUCCESS, payload});
   } catch (err){
     dispatch({ type: GETUSERLIST_FAILURE, err});
