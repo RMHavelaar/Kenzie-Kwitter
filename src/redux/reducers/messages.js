@@ -20,7 +20,6 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
       };
     }
     case CREATE_MESSAGE: {
-
       return {
         ...state,
 
@@ -31,11 +30,9 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
     case CREATE_MESSAGE_SUCCESS:
       const { text } = action.payload;
       return {
-
         ...INITIAL_STATE,
         text,
         loading: false,
-        
       };
     case CREATE_MESSAGE_FAILURE:
       return {
@@ -48,4 +45,3 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-

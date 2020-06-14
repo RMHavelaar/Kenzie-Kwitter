@@ -8,7 +8,6 @@ import {
     REMOVE_LIKES_FAILURE
 } from "../actions"
 
-// INITIAL STATE
 const INITIAL_STATE = {
     loading: false,
     error: "",
