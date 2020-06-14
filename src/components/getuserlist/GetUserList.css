@@ -1,0 +1,24 @@
+#title {
+    padding-left: 0.5em;
+    padding-top: 0.3em;
+    color: rgb(41,163,240);
+}
+
+#list-title {
+    color: rgb(41,163,240);
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+#load-button {
+    background-color: rgb(41,163,240);
+    font-size: small;
+    width: 8em;
+    margin: auto;
+    margin-top: 0.5em;
+}
+
+#load-button:hover {
+    background-color: rgb(62,85,101);
+}
