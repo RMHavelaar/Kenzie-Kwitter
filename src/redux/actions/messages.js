@@ -17,13 +17,13 @@ export const getMessagesFeed = () => async (dispatch, getState) => {
   } catch (err) {}
 };
 
-export const createMessage = (credentials) => async (dispatch, getState) => {
+export const createMessage = (ids) => async (dispatch, getState) => {
   try {
     dispatch({ type: CREATE_MESSAGE });
-    const payload = await api.createMessage(credentials);
+    const payload = await api.createMessage(ids);
     dispatch({ type: CREATE_MESSAGE_SUCCESS, payload });
   } catch (err) {
-    dispatch({ type: CREATE_MESSAGE_FAILURE });
+    dispatch({ type: CREATE_MESSAGE_FAILURE, payload: err.messages });
   }
 };
 
