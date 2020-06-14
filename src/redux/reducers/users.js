@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   username: "",
   password: "",
   displayName: "",
-  users: [],
+  usersList: [],
   loading: false,
   error: "",
 };
@@ -41,9 +41,10 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       };
       
     case GETUSERLIST_SUCCESS:
+      console.log(action.payload)
       return {
         ...INITIAL_STATE,
-        users: action.payload,
+        usersList: action.payload,
         loading: true,
       };  
 

@@ -23,3 +23,14 @@ export const profile = () => async (dispatch, getState) => {
     dispatch({ type: PROFILE_FAILURE, payload: err });
   }
 };
+
+export const lookUpProfile = (username) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: PROFILE_PENDING });
+    const payload = await api.profile(username);
+    // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
+    dispatch({ type: PROFILE_SUCCESS, payload: payload });
+  } catch (err) {
+    dispatch({ type: PROFILE_FAILURE, payload: err });
+  }
+};
