@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Loader } from "../loader";
 import { Button, Card } from "react-bootstrap";
 
 export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
@@ -37,7 +37,7 @@ export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
                 color: "#ffffff",
               }}
             >
-              Post a Kweet
+              Post a Message
             </Card.Header>
             <Card.Body
               style={{
@@ -57,7 +57,7 @@ export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
                   variant="primary"
                   type="submit"
                 >
-                  Kweet
+                  Post
                 </Button>
               </Card.Text>
             </Card.Body>

@@ -15,6 +15,7 @@ class Messages extends React.Component {
             textAlign: "center",
             marginBottom: "1em",
             left: "65%",
+            cursor:"pointer"
           }}
         >
           <Card.Body
