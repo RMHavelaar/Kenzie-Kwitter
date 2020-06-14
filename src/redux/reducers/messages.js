@@ -27,7 +27,7 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         loading: true,
       };
     }
-  
+
     case CREATE_MESSAGE_SUCCESS:
       return {
         ...INITIAL_STATE,
@@ -44,4 +44,4 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-// comments
+

@@ -147,9 +147,9 @@ class API {
       return err;
     }
   }
-  async createMessage(text) {
+  async createMessage({text}) {
     try {
-      const result = await this.axiosInstance.post("/messages", text);
+      const result = await this.axiosInstance.post("/messages", {text});
       return result;
     } catch (err) {
       helpMeInstructor(err);
