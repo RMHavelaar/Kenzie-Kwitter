@@ -9,7 +9,6 @@ export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
 
   const sendMessage = (event) => {
     event.preventDefault();
-    console.log("hello");
     createMessage(state);
     setState((prevState) => ({ ...prevState, text: "" }));
     setTimeout(getMessagesFeed(), 1000);
