@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import "./Message.css";
+// import "./Message.css";
 
 class Messages extends React.Component {
   render() {
@@ -23,16 +23,18 @@ class Messages extends React.Component {
               color: "#ffffff",
             }}
           >
-            <Card.Title
+            <Card.Header
               id="sender"
               style={{
                 color: "#ffffff",
+                border: ".5px solid white",
               }}
             >
-              <span style={{color:"#1DA1F2"}}>@</span>{username}
-            </Card.Title>
+              <span style={{ color: "#1DA1F2" }}>@</span>
+              {username}
+            </Card.Header>
             <p style={{ textAlign: "left" }}>{text}</p>
-            <Card.Link href="#">Delete Message</Card.Link>
+            <Card.Link href="#">Delete</Card.Link>
           </Card.Body>
         </Card>
       </div>

@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
-export const PostMessage = ({
-  createMessage,
-  listOfMessages,
-  error,
-}) => {
+export const PostMessage = ({ createMessage, MessageFeed, error }) => {
   const [state, setState] = useState({
     text: "",
   });
 
-  const submitMessage = (event) => {
+  const sendMessage = (event) => {
     event.preventDefault();
     createMessage(state);
     setState((prevState) => ({ ...prevState, text: "" }));
-    setTimeout(listOfMessages, 50);
+    setTimeout(MessageFeed);
   };
 
   const handleChange = (event) => {
@@ -26,11 +22,11 @@ export const PostMessage = ({
 
   return (
     <React.Fragment>
-      <Container>
-        <form id="messageForm" onSubmit={submitMessage}>
-          <Card border="info" style={{ marginBottom: "0px", width: "35%" }}>
+      <div id="createMessageContainer" >
+        <form id="createMessageForm" onSubmit={sendMessage}>
+          <Card border="info" style={{width:"300px", position:""}}>
             <Card>
-              <Card.Header>Create Message</Card.Header>
+              <Card.Header>Start your Message</Card.Header>
               <Card.Body>
                 <Card.Text>
                   <input
@@ -45,9 +41,7 @@ export const PostMessage = ({
             </Card>
           </Card>
         </form>
-      </Container>
-
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
+      </div>
     </React.Fragment>
   );
 };
