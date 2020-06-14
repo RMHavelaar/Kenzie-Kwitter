@@ -6,26 +6,34 @@ export const REMOVE_MESSAGES_FAILURE = "REMOVE_MESSAGES_FAILURE";
 export const GET_MESSAGE = "GET_MESSAGE";
 export const GET_LIST_MESSAGES = "GET_LIST_MESSAGES";
 export const CREATE_MESSAGE = "CREATE_MESSAGE";
-export const DELETE_MESSAGE = "DELETE_MESSAGE";
+export const CREATE_MESSAGE_SUCCESS = "CREATE_MESSAGE_SUCCESS";
+export const CREATE_MESSAGE_FAILURE = "CREATE_MESSAGE_FAILURE";
 
-export const getMessagesList = () => async (dispatch, getState) => {
+export const getMessagesFeed = () => async (dispatch, getState) => {
   try {
     const payload = await api.getMessages();
-    console.log(payload);
+
     dispatch({ type: GET_LIST_MESSAGES, payload });
+  } catch (err) {}
+};
+
+export const createMessage = (ids) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: CREATE_MESSAGE });
+    const payload = await api.createMessage(ids);
+    dispatch({ type: CREATE_MESSAGE_SUCCESS, payload });
   } catch (err) {
-    console.log(err);
+    dispatch({ type: CREATE_MESSAGE_FAILURE, payload: err.messages });
   }
 };
 
-
-export const removeMessages = (messageId) =>  async (dispatch, getState) => {
-  const userName = getState().auth.username;
-  try {
-    dispatch({ type: REMOVE_MESSAGES});
-    const payload = await api.removeMessage(messageId);
-    dispatch({ type: REMOVE_MESSAGES_SUCCESS, payload});
-  } catch (err){
-    dispatch({ type: REMOVE_MESSAGES_FAILURE, err});
-  }
-}
+// export const removeMessages = (messageId) =>  async (dispatch, getState) => {
+//   const userName = getState().auth.username;
+//   try {
+//     dispatch({ type: REMOVE_MESSAGES});
+//     const payload = await api.removeMessage(messageId);
+//     dispatch({ type: REMOVE_MESSAGES_SUCCESS, payload});
+//   } catch (err){
+//     dispatch({ type: REMOVE_MESSAGES_FAILURE, err});
+//   }
+// }

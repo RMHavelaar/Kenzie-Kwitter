@@ -15,7 +15,6 @@ const mapStateToProps = (state) => ({
   updatedAt: state.profile.updatedAt,
   loading: state.profile.loading,
   error: state.profile.error,
-  // picture: state.putPhoto.picture,
 });
 
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops

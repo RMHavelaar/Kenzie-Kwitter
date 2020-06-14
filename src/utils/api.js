@@ -137,11 +137,28 @@ class API {
       helpMeInstructor(err);
     }
   }
-  
+
   async getMessages() {
     try {
       const result = await this.axiosInstance.get(`/messages`);
-      console.log(result);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+  async createMessage({text}) {
+    try {
+      const result = await this.axiosInstance.post("/messages", {text});
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+  async useGoogleLogin() {
+    try {
+      const result = await this.axiosInstance.get("/auth/google/login");
       return result;
     } catch (err) {
       helpMeInstructor(err);

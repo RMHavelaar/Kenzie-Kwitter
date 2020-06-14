@@ -11,7 +11,7 @@ export const Menu = ({ isAuthenticated, logout }) => {
       {isAuthenticated && (
         <div id="menu-links">
           <Link to="/profiles/:username">Home</Link>
-          <Link to="/messagefeed">Message Feed</Link>
+          <Link to="/messages">Message Feed</Link>
           <Link to="/" onClick={logout}>
             Logout
           </Link>
