@@ -37,10 +37,9 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
     authWindow.window.opener.onmessage = (event) => {
       authWindow.close();
       if (!event || !event.data || !event.data.token) {
-        alert("Please log in");
         return;
       }
-
+      console.log(event.data)
       loginGoogle(event.data);
     };
   };
@@ -93,6 +92,7 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
 
 LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
+  loginGoogle: PropTypes.func,
   loading: PropTypes.bool,
   error: PropTypes.string,
 };
