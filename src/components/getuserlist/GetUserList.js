@@ -2,24 +2,24 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./GetUserList.css";
 import defaultImage from "../../assets/images/EmptyProfilePic.png";
-// import { Loader } from '../loader'
 
 class GetUserList extends Component {
-  state = { usersList: [] };
-
-  // componentDidMount() {
-  //   this.props.getUserList()
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      usersList: [],
+    };
+  }
 
   handleLoadUsers = (event) => {
     this.props.getUserList();
   };
 
   render() {
-    let users = this.props.usersList.users;
+    const users = this.props.usersList.usersList;
     return (
       <React.Fragment>
-        <button type="submit" className="btn btn-primary" id="load-button" onClick={this.handleLoadUsers}>Load users</button>
+        <button className="btn btn-primary" id="load-button" onClick={this.handleLoadUsers}>Load users</button>
         <h3 id="list-title">User List</h3>
         {users.map((user) => (
             <div key={user.username} className="card" id="profile-card">
