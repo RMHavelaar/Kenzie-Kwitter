@@ -81,6 +81,7 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
           id="login-button"
         >
           Login
+          
         </button>
         <button onClick={startAuthentication}>Login using Google</button>
       </form>

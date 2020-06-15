@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./GetUserList.css";
+import { Loader } from "../loader";
 import defaultImage from "../../assets/images/EmptyProfilePic.png";
 
 class GetUserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       usersList: [],
     };
   }
@@ -22,10 +24,12 @@ class GetUserList extends Component {
         <button
           className="btn btn-primary"
           id="load-button"
+          disabled={this.state.loading}
           onClick={this.handleLoadUsers}
         >
           Load users
         </button>
+        {this.state.loading && <Loader />}
         <h3 id="list-title">User List</h3>
         {users.map((user) => (
           <div key={user.username} className="card" id="profile-card">
