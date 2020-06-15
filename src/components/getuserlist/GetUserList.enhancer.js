@@ -1,16 +1,14 @@
 import { connect } from "react-redux";
-import { getUserList } from "../../redux/actions/users";
-// import { lookUpProfile } from "../../redux/actions/profile";
+import { getUserList } from "../../redux/actions/getUserList";
 
 const mapStateToProps = (state) => ({
-    usersList: state.users.usersList,
-    loading: state.users.loading,
-    error: state.users.error,
-  });
-  
-  const mapDispatchToProps = {
-    getUserList
-  };
+  usersList: state.usersList,
+  loading: state.loading,
+  error: state.error,
+});
 
+const mapDispatchToProps = {
+  getUserList,
+};
 
 export const enhancer = connect(mapStateToProps, mapDispatchToProps);
