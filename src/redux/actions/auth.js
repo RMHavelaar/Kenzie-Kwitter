@@ -1,6 +1,5 @@
 import api from "../../utils/api";
 
-// AUTH CONSTANTS
 export const LOGIN = "AUTH/LOGIN";
 export const LOGIN_SUCCESS = "AUTH/LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "AUTH/LOGIN_FAILURE";
@@ -9,11 +8,7 @@ export const GOOGLE_LOGIN = "AUTH/GOOGLE_LOGIN";
 export const GOOGLE_LOGIN_SUCCESS = "AUTH/GOOGLE_LOGIN_SUCCESS";
 export const GOOGLE_LOGIN_FAILURE = "AUTH/GOOGLE_LOGIN_FAILURE";
 
-/*
- AUTH ACTIONS (this is a thunk....)
- THUNKS: --> https://github.com/reduxjs/redux-thunk#whats-a-thunk
- If you need access to your store you may call getState()
-*/
+
 export const login = (credentials) => async (dispatch, getState) => {
   try {
     dispatch({ type: LOGIN });
@@ -48,4 +43,4 @@ export const logout = () => async (dispatch, getState) => {
     localStorage.clear();
   }
 };
-// END AUTH ACTIONS
+
