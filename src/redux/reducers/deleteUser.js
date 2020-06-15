@@ -1,6 +1,5 @@
 import { DELETEUSER_PENDING, DELETEUSER_SUCCESS, DELETEUSER_FAILURE } from "../actions";
 
-// INITIAL STATE
 const INITIAL_STATE = {
   loading: false,
   error: "",

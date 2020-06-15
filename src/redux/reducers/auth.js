@@ -6,7 +6,6 @@ import {
   GOOGLE_LOGIN_SUCCESS,
 } from "../actions";
 
-// INITIAL STATE
 const INITIAL_STATE = {
   isAuthenticated: false,
   username: "",

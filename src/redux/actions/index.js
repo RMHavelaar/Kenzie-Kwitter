@@ -3,3 +3,4 @@ export * from "./users";
 export * from "./profile";
 export * from "./likes";
 export * from "./messages";
+export * from "./getUserList";
