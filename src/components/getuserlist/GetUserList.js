@@ -13,8 +13,11 @@ class GetUserList extends Component {
     };
   }
 
-  handleLoadUsers = (event) => {
-    this.props.getUserList();
+  handleLoadUsers = async(event) => {
+    this.setState({ loading: true})
+    await this.props.getUserList();
+    this.setState({ loading: false})
+    
   };
 
   render() {
@@ -24,7 +27,7 @@ class GetUserList extends Component {
         <button
           className="btn btn-primary"
           id="load-button"
-          disabled={this.state.loading}
+          disabled={this.props.loading}
           onClick={this.handleLoadUsers}
         >
           Load users
