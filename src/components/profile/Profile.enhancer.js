@@ -4,7 +4,6 @@ import { putPhoto } from "../../redux/actions/putPhoto";
 import { login } from "../../redux/actions/auth";
 import { deleteUser } from "../../redux/actions/deleteUser";
 
-// https://react-redux.js.org/using-react-redux/connect-mapstate#connect-extracting-data-with-mapstatetoprops
 const mapStateToProps = (state) => ({
   username: state.profile.username,
   pictureLocation: state.profile.pictureLocation,
@@ -17,7 +16,6 @@ const mapStateToProps = (state) => ({
   error: state.profile.error,
 });
 
-// https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops
 const mapDispatchToProps = {
   profile,
   putPhoto,
