@@ -22,7 +22,6 @@ export const login = (credentials) => async (dispatch, getState) => {
     // console.log({ result })
     dispatch({ type: GOOGLE_LOGIN});
     const result = await api.useGoogleLogin()
-    console.log({result})
     dispatch({ type: LOGIN_SUCCESS, payload });
     // dispatch({type: GOOGLE_LOGIN_SUCCESS, result});
   } catch (err) {
