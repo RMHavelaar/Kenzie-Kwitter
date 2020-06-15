@@ -9,6 +9,7 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       picture: "",
     };
   }
@@ -136,10 +137,6 @@ class Profile extends Component {
               {this.props.displayName ? this.props.displayName : ""}
             </p>
             <p className="card-text">
-              Bio:{" "}
-              {this.props.about ? this.props.about : "You don't have a bio yet"}
-            </p>
-            <p className="card-text">
               Created on:{" "}
               {this.props.createdAt
                 ? dateFormat(this.props.createdAt, "mmmm dS, yyyy")
@@ -186,7 +183,7 @@ Profile.propTypes = {
   deleteUser: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  error: PropTypes.string,
+  // error: PropTypes.string,
 };
 
 export default Profile;
