@@ -82,7 +82,7 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
         >
           Login
         </button>
-        <p onClick={startAuthentication}>Login using Google</p>
+        <button onClick={startAuthentication}>Login using Google</button>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
