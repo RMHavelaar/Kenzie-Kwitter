@@ -21,7 +21,7 @@ class GetUserList extends Component {
       <React.Fragment>
         <button type="submit" className="btn btn-primary" id="load-button" onClick={this.handleLoadUsers}>Load users</button>
         <h3 id="list-title">User List</h3>
-        {users.map((user) => (
+        {/* {users.map((user) => (
             <div key={user.username} className="card" id="profile-card">
               <img
                 src={
@@ -41,7 +41,7 @@ class GetUserList extends Component {
                 </p>
               </div>
             </div>
-          ))};
+          ))}; */}
       </React.Fragment>
     );
   }
