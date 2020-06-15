@@ -20,7 +20,7 @@ class MessageFeed extends React.Component {
               loggedInUser={this.props.loggedInUser}
               likes={message.likes}
               likesCount={message.likes.length}
-              id={message.id} 
+              id={message.id}
               addLike={this.props.addLike}
               removeLike={this.props.removeLike}
             />

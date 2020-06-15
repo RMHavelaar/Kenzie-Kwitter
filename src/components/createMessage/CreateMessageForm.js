@@ -30,23 +30,23 @@ export const PostMessage = ({
       <div id="createMessageContainer">
         <form id="createMessageForm" onSubmit={sendMessage} style={{}}>
           <Card id="createMessageCard">
-            <Card.Header>Post a Message</Card.Header>
-            <Card.Body>
+            <Card.Body id="inputBar">
               <Card.Text>
                 <input
+                  id="inputField"
                   type="text"
                   name="text"
+                  placeholder="Share your thoughts with the world...#goTeamK"
                   value={state.text}
                   onChange={handleChange}
                 />
                 <Button
-                  style={{ backgroundColor: "#1DA1F2" }}
                   variant="primary"
                   type="submit"
                   disabled={loading}
+                  id="postButton"
                 >
                   Post
-
                 </Button>
                 {loading && <Loader />}
               </Card.Text>
