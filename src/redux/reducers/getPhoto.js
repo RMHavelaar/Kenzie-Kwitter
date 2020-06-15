@@ -1,6 +1,5 @@
 import { GET_PHOTO_PENDING, GET_PHOTO_SUCCESS, GET_PHOTO_FAILURE } from "../actions";
 
-// INITIAL STATE
 const INITIAL_STATE = {
   picture: null,
   loading: false,

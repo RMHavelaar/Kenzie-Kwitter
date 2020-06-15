@@ -16,12 +16,3 @@ export const profile = () => async (dispatch, getState) => {
   }
 };
 
-// export const lookUpProfile = (username) => async (dispatch, getState) => {
-//   try {
-//     dispatch({ type: PROFILE_PENDING });
-//     const payload = await api.profile(username);
-//     dispatch({ type: PROFILE_SUCCESS, payload: payload });
-//   } catch (err) {
-//     dispatch({ type: PROFILE_FAILURE, payload: err });
-//   }
-// };
