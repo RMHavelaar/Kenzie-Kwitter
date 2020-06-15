@@ -60,7 +60,7 @@ export const LoginForm = ({ login, loading, error }) => {
         </div>
         <button type="submit" disabled={loading} className="btn btn-primary" id="login-button">
           Login
-
+          
         </button>
       </form>
       {loading && <Loader />}
