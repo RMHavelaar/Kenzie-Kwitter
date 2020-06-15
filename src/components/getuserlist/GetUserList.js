@@ -17,7 +17,6 @@ class GetUserList extends Component {
     this.setState({ loading: true})
     await this.props.getUserList();
     this.setState({ loading: false})
-    
   };
 
   render() {
