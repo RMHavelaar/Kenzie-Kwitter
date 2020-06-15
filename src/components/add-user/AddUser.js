@@ -39,6 +39,7 @@ export const AddUser = ({ addUser, loading, error }) => {
             type="text"
             name="username"
             placeholder="username"
+            autoComplete="username"
             value={state.username}
             autoFocus
             required
@@ -52,6 +53,7 @@ export const AddUser = ({ addUser, loading, error }) => {
             type="text"
             name="displayName"
             placeholder="display name"
+            autoComplete="name"
             value={state.displayName}
             autoFocus
             required
@@ -65,6 +67,7 @@ export const AddUser = ({ addUser, loading, error }) => {
             type="password"
             name="password"
             placeholder="password"
+            autoComplete="current-password"
             value={state.password}
             required
             onChange={handleChange}
@@ -74,8 +77,8 @@ export const AddUser = ({ addUser, loading, error }) => {
         </div>
         <button type="submit" disabled={loading} className="btn btn-primary" id="register-button">
           Register
-          {loading && <Loader />}
         </button>
+        {loading && <Loader />}
       </form>
 
       {error && <p style={{ color: "red" }}>{error.message}</p>}
@@ -86,5 +89,4 @@ export const AddUser = ({ addUser, loading, error }) => {
 AddUser.propTypes = {
   addUser: PropTypes.func.isRequired,
   loading: PropTypes.bool,
-  error: PropTypes.string,
 };

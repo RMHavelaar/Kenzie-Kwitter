@@ -39,7 +39,6 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
       if (!event || !event.data || !event.data.token) {
         return;
       }
-      console.log(event.data)
       loginGoogle(event.data);
     };
   };
@@ -53,6 +52,7 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
             type="text"
             name="username"
             placeholder="username"
+            autoComplete="username"
             value={state.username}
             autoFocus
             required
@@ -66,6 +66,7 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
             type="password"
             name="password"
             placeholder="password"
+            autoComplete="current-password"
             value={state.password}
             required
             onChange={handleChange}
@@ -94,5 +95,4 @@ LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
   loginGoogle: PropTypes.func,
   loading: PropTypes.bool,
-  error: PropTypes.string,
 };

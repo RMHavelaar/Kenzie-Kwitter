@@ -27,13 +27,3 @@ export const createMessage = (ids) => async (dispatch, getState) => {
   }
 };
 
-// export const removeMessages = (messageId) =>  async (dispatch, getState) => {
-//   const userName = getState().auth.username;
-//   try {
-//     dispatch({ type: REMOVE_MESSAGES});
-//     const payload = await api.removeMessage(messageId);
-//     dispatch({ type: REMOVE_MESSAGES_SUCCESS, payload});
-//   } catch (err){
-//     dispatch({ type: REMOVE_MESSAGES_FAILURE, err});
-//   }
-// }
