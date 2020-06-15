@@ -46,8 +46,9 @@ export const PostMessage = ({
                   disabled={loading}
                 >
                   Post
-                  {loading && <Loader />}
+
                 </Button>
+                {loading && <Loader />}
               </Card.Text>
             </Card.Body>
           </Card>

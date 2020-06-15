@@ -60,10 +60,10 @@ export const LoginForm = ({ login, loading, error }) => {
         </div>
         <button type="submit" disabled={loading} className="btn btn-primary" id="login-button">
           Login
-              {loading && <Loader />}
+
         </button>
       </form>
-  
+      {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
   );
