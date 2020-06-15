@@ -5,6 +5,9 @@ export const LOGIN = "AUTH/LOGIN";
 export const LOGIN_SUCCESS = "AUTH/LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "AUTH/LOGIN_FAILURE";
 export const LOGOUT = "AUTH/LOGOUT";
+export const GOOGLE_LOGIN = "AUTH/GOOGLE_LOGIN";
+export const GOOGLE_LOGIN_SUCCESS = "AUTH/GOOGLE_LOGIN_SUCCESS";
+export const GOOGLE_LOGIN_FAILURE = "AUTH/GOOGLE_LOGIN_FAILURE";
 
 /*
  AUTH ACTIONS (this is a thunk....)
@@ -17,13 +20,26 @@ export const login = (credentials) => async (dispatch, getState) => {
     const payload = await api.login(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     // console.log({ result })
+    dispatch({ type: GOOGLE_LOGIN});
+    const result = await api.useGoogleLogin()
+    console.log({result})
     dispatch({ type: LOGIN_SUCCESS, payload });
+    // dispatch({type: GOOGLE_LOGIN_SUCCESS, result});
   } catch (err) {
     dispatch({
       type: LOGIN_FAILURE,
       payload: err.message,
     });
+    dispatch({
+      type: GOOGLE_LOGIN_FAILURE,
+      payload: err.message
+    });
   }
+};
+
+export const loginGoogle = (payload) => async (dispatch, getState) => {
+  console.log(payload)
+  dispatch({ type: GOOGLE_LOGIN_SUCCESS, payload });
 };
 
 export const logout = () => async (dispatch, getState) => {
@@ -36,6 +52,7 @@ export const logout = () => async (dispatch, getState) => {
      * Let the reducer know that we are logged out
      */
     dispatch({ type: LOGOUT });
+    localStorage.clear()
   }
 };
 // END AUTH ACTIONS

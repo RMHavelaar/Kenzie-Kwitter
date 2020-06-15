@@ -1,0 +1,33 @@
+#CardOne {
+  width: 25rem;
+  height: "10rem";
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 1em;
+  background-color: #15202b;
+  border: 3px solid #1da1f2;
+  color: white;
+  margin: auto;
+}
+
+#CardOne:hover {
+  background-color: #1c548b57;
+}
+
+#cardHeader {
+  border: 0.5px solid white;
+  font-style: oblique 40deg;
+  font-size: 2em;
+  border: 8px solid #1da1f2;
+}
+#createMessageCard {
+  display: flex;
+  flex-direction: row;
+  border: 8px solid #1da1f2;
+  margin: auto;
+}
+
+button {
+}
+button:hover {
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   MessagesContainer,
   MenuContainer,
@@ -10,13 +9,9 @@ import "./Home.css";
 export const MessagesScreen = () => (
   <>
     <MenuContainer />
-    <div className="title" style={{ position: "relative", left: "35%" }}>
-      <h4>Message Feed</h4>
+    <div id="maybe">
+      <PostMessageContainer />
+      <MessagesContainer />
     </div>
-    <Link to="/" className="link">
-      Home Page
-    </Link>
-    <PostMessageContainer />
-    <MessagesContainer />
   </>
 );

@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Loader } from "../loader";
 import { Button, Card } from "react-bootstrap";
 
-export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
+export const PostMessage = ({
+  createMessage,
+  getMessagesFeed,
+  loading,
+  error,
+}) => {
   const [state, setState] = useState({
     text: "",
   });
@@ -24,27 +29,9 @@ export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
     <React.Fragment>
       <div id="createMessageContainer">
         <form id="createMessageForm" onSubmit={sendMessage} style={{}}>
-          <Card
-            border="info"
-            style={{
-              width: "25rem",
-              height: "8rem",
-            }}
-          >
-            <Card.Header
-              style={{
-                backgroundColor: "#15202b",
-                color: "#ffffff",
-              }}
-            >
-              Post a Message
-            </Card.Header>
-            <Card.Body
-              style={{
-                backgroundColor: "#15202b",
-                color: "#ffffff",
-              }}
-            >
+          <Card id="createMessageCard">
+            <Card.Header>Post a Message</Card.Header>
+            <Card.Body>
               <Card.Text>
                 <input
                   type="text"
@@ -56,8 +43,10 @@ export const PostMessage = ({ createMessage, getMessagesFeed, error }) => {
                   style={{ backgroundColor: "#1DA1F2" }}
                   variant="primary"
                   type="submit"
+                  disabled={loading}
                 >
                   Post
+                  {loading && <Loader />}
                 </Button>
               </Card.Text>
             </Card.Body>

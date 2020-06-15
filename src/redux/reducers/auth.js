@@ -1,4 +1,10 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "../actions";
+import {
+  LOGIN,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT,
+  GOOGLE_LOGIN_SUCCESS,
+} from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
@@ -6,6 +12,7 @@ const INITIAL_STATE = {
   username: "",
   loading: false,
   error: "",
+  photo: "",
 };
 
 export const authReducer = (state = INITIAL_STATE, action) => {
@@ -33,7 +40,15 @@ export const authReducer = (state = INITIAL_STATE, action) => {
       return {
         ...INITIAL_STATE,
       };
+      case GOOGLE_LOGIN_SUCCESS:
+        console.log(action.payload)
+        return {
+          ...INITIAL_STATE,
+          isAuthenticated: action.payload.token,
+          username: action.payload.username,
+      };
     default:
       return state;
   }
 };
+

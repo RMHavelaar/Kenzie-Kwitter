@@ -1,6 +1,6 @@
 import React from "react";
 import MessageCard from "./MessageCard";
-// import "./Message.css";
+import "./Message.css";
 
 class MessageFeed extends React.Component {
   state = { messages: [] };
