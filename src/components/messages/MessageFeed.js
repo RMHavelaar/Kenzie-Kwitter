@@ -17,6 +17,12 @@ class MessageFeed extends React.Component {
               username={message.username}
               key={message.id}
               text={message.text}
+              loggedInUser={this.props.loggedInUser}
+              likes={message.likes}
+              likesCount={message.likes.length}
+              id={message.id} 
+              addLike={this.props.addLike}
+              removeLike={this.props.removeLike}
             />
           );
         })}
