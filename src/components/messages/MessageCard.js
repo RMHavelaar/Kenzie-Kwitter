@@ -23,14 +23,19 @@ class Messages extends React.Component {
               <span style={{ color: "#1DA1F2" }}>@</span>
               {username}
             </Card.Header>
-            <p style={{ textAlign: "left" }}>{text}</p>
+            <br />
+            <p id="input">{text}</p>
+
             <img
+            id="likeButton"
               onClick={() =>
                 this.handleLike(id, loggedInUser, this.props.likes)
               }
               src={likeImage}
               alt="Like Button"
             />{" "}
+            <br />
+            
             {this.props.likesCount} Likes
           </Card.Body>
         </Card>

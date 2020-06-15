@@ -1,13 +1,14 @@
 #CardOne {
-  width: 25rem;
+  width: 45rem;
   height: "10rem";
-  text-align: center;
   cursor: pointer;
   margin-bottom: 1em;
   background-color: #15202b;
-  border: 3px solid #1da1f2;
+  border: 3px outset #1da1f2;
   color: white;
   margin: auto;
+  top: 1em;
+  text-align: center;
 }
 
 #CardOne:hover {
@@ -15,19 +16,39 @@
 }
 
 #cardHeader {
-  border: 0.5px solid white;
   font-style: oblique 40deg;
-  font-size: 2em;
-  border: 8px solid #1da1f2;
-}
-#createMessageCard {
-  display: flex;
-  flex-direction: row;
-  border: 8px solid #1da1f2;
-  margin: auto;
+  font-size: 1em;
+  border: 1px outset white;
 }
 
-button {
+#createMessageCard {
+  border: 1.5px outset #1da1f2;
+  margin: auto;
+  font-size: 1.5em;
+  background-color: #15202b;
 }
-button:hover {
+
+#postButton {
+  bottom: 3px;
+  margin-left: 0.5em;
+  top: 2px;
+  background-color: #1da1f2;
+}
+
+#postButton:hover{
+  background-color: rgb(62,85,101);
+}
+
+#likeButton {
+  border: 1px solid white;
+}
+
+#input {
+  font-size: 2em;
+}
+#inputBar {
+  margin: auto;
+}
+#inputField {
+  width: 30rem;
 }
