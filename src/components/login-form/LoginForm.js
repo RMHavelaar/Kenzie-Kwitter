@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Loader } from "../loader";
 import "./LoginForm.css";
 
-export const LoginForm = ({ login, loading, error }) => {
+export const LoginForm = ({ login, loginGoogle, loading, error }) => {
   const [state, setState] = useState({
     username: "",
     password: "",
@@ -27,6 +27,22 @@ export const LoginForm = ({ login, loading, error }) => {
       username: "",
       password: "",
     });
+  };
+
+  const startAuthentication = () => {
+    const authWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank"
+    );
+    authWindow.window.opener.onmessage = (event) => {
+      authWindow.close();
+      if (!event || !event.data || !event.data.token) {
+        alert("Please log in");
+        return;
+      }
+
+      loginGoogle(event.data);
+    };
   };
 
   return (
@@ -58,10 +74,15 @@ export const LoginForm = ({ login, loading, error }) => {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" disabled={loading} className="btn btn-primary" id="login-button">
+        <button
+          type="submit"
+          disabled={loading}
+          className="btn btn-primary"
+          id="login-button"
+        >
           Login
-
         </button>
+        <button onClick={startAuthentication}>Login using Google</button>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   createMessage,
-  getMessagesFeed
+  getMessagesFeed,
 };
 
 export const enhancer = connect(mapStateToProps, mapDispatchToProps);
