@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 export const Loader = () => {
   return (
 <>
-  <Button variant="primary" disabled>
+  {/* <Button variant="primary" disabled>
     <Spinner
       as="span"
       animation="border"
@@ -14,7 +14,7 @@ export const Loader = () => {
       aria-hidden="true"
     />
     <span className="sr-only">Loading...</span>
-  </Button>{' '} 
+  </Button>{' '}  */}
   <Button variant="primary" disabled>
     <Spinner
       as="span"
